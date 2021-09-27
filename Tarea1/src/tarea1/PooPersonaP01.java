@@ -64,7 +64,7 @@ public void ejemplo(){
                     
         }
                     break;
-                case 2:
+                /*case 2:
                     System.out.println("id nombres  paterno  materno     sexo");
                     for (persona l:jn.create(p1)) {
                         System.out.println(l.getId());
@@ -86,7 +86,7 @@ public void ejemplo(){
                         System.out.println(l.getAp_materno());
                         System.out.println(l.getSexo());
                         
-                    }break;
+                    }break;*/
             }
         } while (otp!=0);
         /*ImplPersona ip=new ImplPersona();
