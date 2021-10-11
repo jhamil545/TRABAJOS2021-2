@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.*;
 
@@ -87,7 +88,7 @@ public class CrudVectorFrame extends JFrame{
              pan4.add(lb_codigo);
              pan4.add(txt_codigo);
              
-             Object msg []={pan1,pan2,pan3,pan4};
+             Object msg [][]={{pan1,pan2,pan3,pan4}};
              
               if(JOptionPane.showOptionDialog(null, msg, "Registrar", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,null,null,null)==JOptionPane.OK_OPTION){
 
@@ -111,15 +112,18 @@ public class CrudVectorFrame extends JFrame{
              new ActionListener(){
                  public void actionPerformed(ActionEvent e){
                      String columnas[]={"Nombres","Paterno","Materno","codigo"};
-                     Object filas[][]=new Object[metodos.lista.size()][4];
+                     Object filas[][]=new Object[metodos.listaPersonas.size()][4];
                      
-                     Vector nuevoVector=metodos.lista;
-                     for (int i = 0; i < nuevoVector.size(); i++) {
-                         datosPersona v=(datosPersona)metodos.lista.get(i);
-                         filas[i][0]=v.nombres;
-                         filas[i][1]=v.ap_paterno;
-                         filas[i][2]=v.ap_materno;
-                         filas[i][3]=v.codigo;
+                     ArrayList<datosPersona> nuevaMatriz=metodos.listaPersonas;
+                     for (int i = 0; i < nuevaMatriz.size(); i++) {
+                         for (int j = 0; j < 1; j++) {
+                             datosPersona v=(datosPersona)metodos.listaPersonas.get(i);
+                         filas[i][j]=v.nombres;
+                         filas[i][j+1]=v.ap_paterno;
+                         filas[i][j+2]=v.ap_materno;
+                         filas[i][j+3]=v.codigo;
+                        
+                         }
                          
                       
                      }
@@ -133,6 +137,8 @@ public class CrudVectorFrame extends JFrame{
                  }
              }
      );
+    //
+    
     
  }
     
